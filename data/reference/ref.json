@@ -1,0 +1,10 @@
+{ 
+   "urlref":["https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/Metamycoplasma_hominis/latest_assembly_versions/GCF_000085865.1_ASM8586v1/"],
+   
+   "pathGenome":["/home/fascue/Documentos/Git/Rgenomics/data/reference/GCF_000085865.1_ASM8586v1_genomic.fna"],
+   
+   "pathGenomeIndex":["/home/fascue/Documentos/Git/Rgenomics/data/reference/GCF_000085865.1_ASM8586v1_genomic.fna.fai"],
+   
+   "GenomeDirectory":[ "/home/fascue/Documentos/Git/Rgenomics/data/reference/"]
+  
+}
