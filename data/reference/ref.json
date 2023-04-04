@@ -5,8 +5,5 @@
    
    "pathGenomeIndex":["/home/fascue/Documentos/Git/Rgenomics/data/reference/GCF_000085865.1_ASM8586v1_genomic.fna.fai"],
    
-   "GenomeDirectory":[ "/home/fascue/Documentos/Git/Rgenomics/data/reference/"],
-   
-   "sraQuery":['("Mycoplasma"[Organism] OR Mycoplasma[All Fields]) AND "Metamycoplasma hominis"[orgn] AND ("biomol dna"[Properties] AND "strategy wgs"[Properties] AND "library layout paired"[Properties] AND "strategy wgs"[Properties] OR "strategy wga"[Properties] OR "strategy wcs"[Properties] OR "strategy clone"[Properties] OR "strategy finishing"[Properties] OR "strategy validation"[Properties] AND "filetype fastq"[Properties])']
-  
+   "GenomeDirectory":[ "/home/fascue/Documentos/Git/Rgenomics/data/reference/"]
 }
