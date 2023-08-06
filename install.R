@@ -27,7 +27,7 @@ for(i in dependencies){
 }
 
 if( !is.element("GEOquery",rownames(installed.packages() ) ) ){
-  devtools::install_github('GEOquery','seandavi')
+   devtools::install_github('seandavi/GEOquery')
   
 }
 if( !is.element("radiator",rownames(installed.packages() ) ) ){
