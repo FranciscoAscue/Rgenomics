@@ -118,40 +118,49 @@ cons2  <- consensus_parallel(sup = 9000, ex = res, depth = 1,
                                     freq_threshold = 0.6, mltcore = 7, 
                              fastafile = "results/consensus.fasta")
 
-############## Call Variants with VariantTools and GmapR ##############
+################# Annotación de genomas bacterianos ###################
 #######################################################################
 
-# GmapGenome reference
 
-genome <- url$pathGenome
-faindex <- url$pathGenomeIndex
-gmapGenomeDirectory <- url$GenomeDirectory
+library(dplyr)
+library(ape)
 
-gmapGenome <- GmapGenome(genome = genome,
-                         directory=gmapGenomeDirectory,
-                         create = TRUE,name="myco")
+df <- read.table("data/annotation/annotation.tsv", sep = "\t", header = TRUE)
+df <- df %>% dplyr::filter(ftype %in% c("CDS","rRNA","tRNA"))
+gfff <- read.gff("data/annotation/annotation.gff")  
+gfff$attributes <- gsub("ID=","",gfff$attributes,fixed = TRUE)
+gfff$attributes <- gsub("_gene","",gfff$attributes,fixed = TRUE)
+gffCDS <- gfff %>% dplyr::filter(type %in% c("CDS","rRNA","tRNA"))
+tmp <- merge(x = df, y =gffCDS , by.y = "attributes", by.x = "locus_tag", all = TRUE)
 
-# Variant call parameters
+length(unique(tmp$locus_tag))
 
-tally.param <- TallyVariantsParam(gmapGenome,
-                                  high_base_quality = 23L,
-                                  # which = range(p53) + 5e4,
-                                  indels = TRUE, read_length = 75L)
 
-tallies <- tallyVariants(bamFile, tally.param)
+genes_annot <- tmp %>% dplyr::filter(gene != "hypothetical" ) %>% head(20)
+colnames(genes_annot) <- c("locus","ftype","width", "gene", "seqid", "source", "type",
+                           "start","end","score","strand","phase")
 
-variantSummary(tallies)
+variantes <- read.table("data/gen.tsv", sep = "\t", header = TRUE)
 
-# Call variants
+library(circlize)
+library(viridisLite)
+library(viridis)
+set.seed(999)
 
-called.variants <- callVariants(bamFile, tally.param)
+# Crear un dataframe con los datos de anotación
+df <- data.frame(
+  name  = genes_annot$gene,
+  start = genes_annot$start,
+  end   = genes_annot$end)
 
-# Save vcf files 
+circos.genomicInitialize(df)
 
-sampleNames(called.variants) <- "SRR15616379"
-
-vcf <- asVCF(called.variants)
-
-writeVcf(vcf, "results/SRR15616379.vcf", index = TRUE)
+# Configurar una pista en el gráfico circular
+circos.track(
+  ylim = c(0, 1),  # Rango de valores en el eje Y
+  bg.col = viridis(20),  # Colores de fondo de las regiones
+  bg.border = NA,  # Sin borde en las regiones
+  track.height = 0.05  # Altura de la pista
+)
 
 
