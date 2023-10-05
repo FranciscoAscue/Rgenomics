@@ -18,8 +18,9 @@ missingPackages <- function(pkg){
   }
 }
 
-dependencies <- c("dada2","Rbowtie2", "Rsamtools","vcfR","ape","rjson", "dplyr",
-                  "foreach", "doParallel", "tidyr","Biostrings","gmapR", "VariantTools")
+dependencies <- c("dada2","Rbowtie2", "Rsamtools","ape","rjson", 
+                  "dplyr","foreach", "doParallel", "tidyr","Biostrings",
+                  "gmapR","fastqcr","ShortRead","ape","ggplot2")
 
 for(i in dependencies){
   missingPackages(i)
@@ -27,7 +28,7 @@ for(i in dependencies){
 }
 
 if( !is.element("GEOquery",rownames(installed.packages() ) ) ){
-   devtools::install_github('seandavi/GEOquery')
+  devtools::install_github('GEOquery','seandavi')
   
 }
 if( !is.element("radiator",rownames(installed.packages() ) ) ){
