@@ -274,12 +274,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#instalación-de-r-y-rstudio-para-windows" id="toc-instalación-de-r-y-rstudio-para-windows" class="nav-link active" data-scroll-target="#instalación-de-r-y-rstudio-para-windows">Instalación de R y Rstudio para Windows</a></li>
+  <li><a href="#instalación-de-r-y-rstudio-para-mac" id="toc-instalación-de-r-y-rstudio-para-mac" class="nav-link" data-scroll-target="#instalación-de-r-y-rstudio-para-mac">Instalación de R y Rstudio para Mac</a></li>
   <li><a href="#instalación-de-r-y-rstudio-para-linux" id="toc-instalación-de-r-y-rstudio-para-linux" class="nav-link" data-scroll-target="#instalación-de-r-y-rstudio-para-linux">Instalación de R y Rstudio para Linux</a></li>
   <li><a href="#instalaciones-de-paquetes-de-r" id="toc-instalaciones-de-paquetes-de-r" class="nav-link" data-scroll-target="#instalaciones-de-paquetes-de-r">Instalaciones de paquetes de R</a></li>
   <li><a href="#instalaciones-de-programas-de-linux" id="toc-instalaciones-de-programas-de-linux" class="nav-link" data-scroll-target="#instalaciones-de-programas-de-linux">Instalaciones de programas de Linux</a>
   <ul class="collapse">
   <li><a href="#instalación-a-travez-de-conda" id="toc-instalación-a-travez-de-conda" class="nav-link" data-scroll-target="#instalación-a-travez-de-conda">Instalación a travez de conda</a></li>
   </ul></li>
+  <li><a href="#instalación-a-travez-de-conda-para-mac" id="toc-instalación-a-travez-de-conda-para-mac" class="nav-link" data-scroll-target="#instalación-a-travez-de-conda-para-mac">Instalación a travez de conda para <strong>Mac</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -324,6 +326,23 @@ Nota
 </div>
 <div class="callout-body-container callout-body">
 <p>Si cuenta con <code>WSL (Windows subsystem Linux)</code> <strong>instale tanto R como Rstudio en Windows!</strong>.</p>
+</div>
+</div>
+</section>
+<section id="instalación-de-r-y-rstudio-para-mac" class="level2">
+<h2 class="anchored" data-anchor-id="instalación-de-r-y-rstudio-para-mac">Instalación de R y Rstudio para Mac</h2>
+<p>Para instalar R y Rstudio para <strong>Mac</strong> pueden consultar el siguiente <a href="https://medium.com/@GalarnykMichael/install-r-and-rstudio-on-mac-e911606ce4f4">tutorial</a></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Advertencia">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para la instalar R y R studio en Mac debemos considerar que tipo de GPU tienen su <strong>Mac</strong>, si tiene M1/M2 o esta basado en Intel.</p>
 </div>
 </div>
 </section>
@@ -413,9 +432,34 @@ Instalar Linux dentro de Windows
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span>  https://raw.githubusercontent.com/FranciscoAscue/Rgenomics/master/ngs_conda.yml</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> ngs_conda.yml</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
+</section>
+<section id="instalación-a-travez-de-conda-para-mac" class="level2">
+<h2 class="anchored" data-anchor-id="instalación-a-travez-de-conda-para-mac">Instalación a travez de conda para <strong>Mac</strong></h2>
+<p>Descargar el instalador de Anacondo para Mac:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/archive/Anaconda3-2023.09-0-MacOSX-x86_64.sh</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> Anaconda3-2023.09-0-MacOSX-x86_64.sh</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Advertencia">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para ver mas detalles revisar el siguiente <a href="https://docs.anaconda.com/free/anaconda/install/mac-os/">tutorial</a> para optar para instalacion visul y CLI. Adjunto tambien un tutorial en <a href="https://www.youtube.com/watch?v=RFeIn2ywxG4">Youtube</a></p>
+</div>
+</div>
+<p>Una vez instalado Anaconda instalar el ambiente con los siguiente comandos:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Activar conda si no se activo inicialmente</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">### conda activate</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span>  https://raw.githubusercontent.com/FranciscoAscue/Rgenomics/master/ngs_conda.yml</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> ngs_conda.yml</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
