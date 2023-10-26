@@ -7,6 +7,7 @@ dependencies:
   - python=3
   - samtools=1.9
   - bwa=0.7.17=pl5.22.0_2
+  - bowtie2
   - ivar=1.1_beta
   - prokka
   - jellyfish
