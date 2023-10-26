@@ -1,10 +1,9 @@
 library(devtools)
-library(GEOquery)
 library(dplyr)
 
 switch(Sys.info()[['sysname']],
        Windows= {
-         url_sratoolkit <- "https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.2/sratoolkit.3.0.2-win64.zip"
+         url_sratoolkit <- "https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.7/sratoolkit.3.0.7-win64.zip"
          dir_base <- paste0(getwd(),"/",strsplit(url_sratoolkit,"/")[[1]][7])
          tmp_dir <- paste0(gsub(".zip","", strsplit(url_sratoolkit,"/")[[1]][7], fixed = TRUE),"/bin/")
          if(!file.exists(dir_base)  && !file.exists(tmp_dir)){
@@ -36,7 +35,7 @@ switch(Sys.info()[['sysname']],
          setMethod("fastqdump", "sratoolkit",
                    function(obj, output){
                      cat("Sra files split in fastq :: ",obj@dest, "\n")
-                     cmd <- paste0(bin,"fastq-dump.exe ","--split-files ",
+                     cmd <- paste0(bin,"fastq-dump-orig.exe ","--split-files ",
                                    "-O ",output," ",obj@dest,obj@sraid,"/",obj@sraid,".sra")
                      system(cmd)
                    }
