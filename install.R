@@ -27,10 +27,7 @@ for(i in dependencies){
   library(i, character.only = TRUE)
 }
 
-if( !is.element("GEOquery",rownames(installed.packages() ) ) ){
-  devtools::install_github('GEOquery','seandavi')
-  
-}
+
 if( !is.element("radiator",rownames(installed.packages() ) ) ){
   devtools::install_github("thierrygosselin/radiator")
   
