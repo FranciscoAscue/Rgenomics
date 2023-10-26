@@ -20,7 +20,7 @@ missingPackages <- function(pkg){
 
 dependencies <- c("dada2","Rbowtie2", "Rsamtools","ape","rjson", 
                   "dplyr","foreach", "doParallel", "tidyr","Biostrings",
-                  "gmapR","fastqcr","ShortRead","ape","ggplot2")
+                  "fastqcr","ShortRead","ape","ggplot2")
 
 for(i in dependencies){
   missingPackages(i)
