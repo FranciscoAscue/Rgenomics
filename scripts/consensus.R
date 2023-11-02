@@ -74,7 +74,7 @@ consensus_parallel <- function(sup, inf=1, ex, depth=0, freq_threshold = 0.6,
   foreach::getDoParRegistered()
   foreach::getDoParWorkers()
   
-  x <- foreach(i = 1:sup, .combine = 'c',.packages='dplyr')%dopar%{
+  x <- foreach(i = inf:sup, .combine = 'c',.packages='dplyr')%dopar%{
     nucl_string(num = i, ex = ex,depth = depth,
                 freq_threshold = freq_threshold )
   }
