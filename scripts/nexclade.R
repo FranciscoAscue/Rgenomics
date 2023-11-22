@@ -25,7 +25,7 @@ aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene
     plotg <- freq_filter %>% dplyr::filter(Gene == gene , Freq > filter) %>% 
       ggplot2::ggplot(ggplot2::aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
       ggplot2::geom_bar(stat = "identity") + 
-      geom_text(aes(label = Freq), vjust = -0.2, size = 3)+
+      geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
       scale_x_discrete(guide = guide_axis(angle = 90)) + 
       scale_fill_brewer(palette="Dark2") +
       theme_light()
