@@ -38,7 +38,7 @@ aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene
       geom_bar(stat = "identity") + 
       geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
       scale_x_discrete(guide = guide_axis(angle = 90)) + 
-      scale_fill_brewer(palette="Dark2") +
+      scale_fill_brewer(palette="Set3") +
       theme_light()
   }
   
@@ -66,7 +66,7 @@ nucl_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, ge
     geom_bar(stat = "identity") + 
     geom_text(aes(label = Frecuencia), vjust = -0.2, size = 2)+
     scale_x_discrete(guide = guide_axis(angle = 90)) + 
-    scale_fill_brewer(palette="Dark2") +
+    scale_fill_brewer(palette="Set3") +
     theme_light()
   
   return(list(plotg = plotg, freqtable = freq_edit))
