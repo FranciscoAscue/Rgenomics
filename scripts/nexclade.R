@@ -23,22 +23,22 @@ aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene
   if(by_gene){
     freq_filter <- freq_edit %>% filter(Freq > filter)
     plotg <- freq_filter %>% dplyr::filter(Gene == gene , Freq > filter) %>% 
-      ggplot2::ggplot(ggplot2::aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
+      ggplot2::ggplot(ggplot2::aes(x=Mutaciones,y=Frecuencia, fill=color)) +
       ggplot2::geom_bar(stat = "identity") + 
       geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
       scale_x_discrete(guide = guide_axis(angle = 90)) + 
-      scale_fill_brewer(palette="Dark2") +
+      #scale_fill_brewer(palette="Dark2") +
       theme_light()
     
   }else{
     
     freq_filter <- freq_edit %>% filter(Freq > filter)
     
-    plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=color)) +
+    plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
       geom_bar(stat = "identity") + 
       geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
       scale_x_discrete(guide = guide_axis(angle = 90)) + 
-      #scale_fill_brewer(palette="Set3") +
+      scale_fill_brewer(palette="Set3") +
       theme_light()
   }
   
