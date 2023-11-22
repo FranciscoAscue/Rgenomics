@@ -1,6 +1,6 @@
 ## Nexcalde mutations - Francisco Ascue
 
-aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene = "S"){
+aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene = "S", color = "blue"){
   library(ggplot2)
   library(dplyr)
   
@@ -34,11 +34,11 @@ aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene
     
     freq_filter <- freq_edit %>% filter(Freq > filter)
     
-    plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
+    plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=color)) +
       geom_bar(stat = "identity") + 
       geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
       scale_x_discrete(guide = guide_axis(angle = 90)) + 
-      scale_fill_brewer(palette="Set3") +
+      #scale_fill_brewer(palette="Set3") +
       theme_light()
   }
   
