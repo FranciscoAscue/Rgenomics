@@ -1,10 +1,12 @@
-mutation_by_gene <- function(mutation_tsv, filter = 200){
+## Nexcalde mutations - Francisco Ascue
+
+aa_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene = "S"){
   library(ggplot2)
   library(dplyr)
   
   aasustitutions <- c()
   for(i in mutation_tsv$aaSubstitutions){
-    aasustitutions <- c(aasustitutions,i)
+    aasustitutions <- c(aasustitutions,",",i)
   }
   aasustitutions <- paste(aasustitutions, collapse = "")
   
@@ -18,11 +20,51 @@ mutation_by_gene <- function(mutation_tsv, filter = 200){
   }
   freq_edit$Gene <- tmp
   
-  freq_filter <- freq_edit %>% filter(Freq > filter)
+  if(by_gene){
+    freq_filter <- freq_edit %>% filter(Freq > filter)
+    plotg <- freq_filter %>% dplyr::filter(Gene == gene , Freq > filter) %>% 
+      ggplot2::ggplot(ggplot2::aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
+      ggplot2::geom_bar(stat = "identity") + 
+      geom_text(aes(label = Freq), vjust = -0.2, size = 3)+
+      scale_x_discrete(guide = guide_axis(angle = 90)) + 
+      scale_fill_brewer(palette="Dark2") +
+      theme_light()
+    
+  }else{
+    
+    freq_filter <- freq_edit %>% filter(Freq > filter)
+    
+    plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
+      geom_bar(stat = "identity") + 
+      geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
+      scale_x_discrete(guide = guide_axis(angle = 90)) + 
+      scale_fill_brewer(palette="Dark2") +
+      theme_light()
+  }
   
-  plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill=Gene)) +
+  return(list(plotg = plotg, freqtable = freq_edit))
+}
+
+nucl_mutation_by_gene <- function(mutation_tsv, filter = 100, by_gene = TRUE, gene = "S"){
+  library(ggplot2)
+  library(dplyr)
+  
+  nuclsustitutions <- c()
+  for(i in mutation_tsv$substitutions){
+    nuclsustitutions <- c(nuclsustitutions,",",i)
+  }
+  nuclsustitutions <- paste(nuclsustitutions, collapse = "")
+  
+  Mutaciones <- strsplit(nuclsustitutions, split = ",")
+  freq <- as.data.frame(table(Mutaciones))
+  freq_edit <- freq %>% mutate(Frecuencia = round(Freq/nrow(mutation_tsv)*100, 2))
+  
+
+  freq_filter <- freq_edit %>% filter(Freq > filter)
+    
+  plotg <- freq_filter %>% ggplot(aes(x=Mutaciones,y=Frecuencia, fill = "#2471A3")) +
     geom_bar(stat = "identity") + 
-    geom_text(aes(label = Frecuencia), vjust = -0.2, size = 3)+
+    geom_text(aes(label = Frecuencia), vjust = -0.2, size = 2)+
     scale_x_discrete(guide = guide_axis(angle = 90)) + 
     scale_fill_brewer(palette="Dark2") +
     theme_light()
