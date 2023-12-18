@@ -1,5 +1,6 @@
 library(devtools)
 library(dplyr)
+library(R.utils)
 
 switch(Sys.info()[['sysname']],
        Windows= {
