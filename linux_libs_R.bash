@@ -4,3 +4,5 @@ sudo apt install libglpk-dev libxml2-dev ## adegenet error install igraph fatal 
 
 sudo apt install default-jdk ## rjava package
 sudo apt install libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev ### devtools packages
+sudo apt install liblzma-dev ### install package 'Rhtslib'
+
