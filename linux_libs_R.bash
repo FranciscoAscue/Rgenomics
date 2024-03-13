@@ -7,3 +7,4 @@ sudo apt install libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-
 sudo apt install liblzma-dev ### install package 'Rhtslib'
 
 sudo apt install libbz2-dev  ### dada2 packages
+sudo apt install libmagick++-dev ## ggimage
