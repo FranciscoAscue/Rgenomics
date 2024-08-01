@@ -26,11 +26,4 @@ for(i in dependencies){
   missingPackages(i)
   library(i, character.only = TRUE)
 }
-
-
-if( !is.element("radiator",rownames(installed.packages() ) ) ){
-  devtools::install_github("thierrygosselin/radiator")
-  
-}
-library(radiator)
 ################################################################################
