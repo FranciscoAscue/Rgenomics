@@ -503,7 +503,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat > .rstudio-themes-dark .gwt-SplitLayoutPanel td {
-  border-color: #282c34 !important;
+  border-color: #0a0b0d !important;
 }
 
 /* window containers */
