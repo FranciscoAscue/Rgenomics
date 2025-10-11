@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "Instalación de Paquetes",
     "section": "",
-    "text": "En esta sección encontraras los requisitos previos del Curso de Genómica antes de empezar. Este tutorial contempla principalmente el SO: Windows y Linux: Ubuntu 22"
+    "text": "En esta sección encontraras los requisitos previos del Curso de Genómica antes de empezar. Este tutorial contempla principalmente el SO: Windows y Linux: Ubuntu 24"
   },
   {
     "objectID": "index.html#instalación-de-r-y-rstudio-para-windows",
     "href": "index.html#instalación-de-r-y-rstudio-para-windows",
     "title": "Instalación de Paquetes",
     "section": "Instalación de R y Rstudio para Windows",
-    "text": "Instalación de R y Rstudio para Windows\n\nPara trabajar en el editor de código (IDE) Rstudio primero debemos instalar R, en la versión mas reciente los podemos encontra en el siguiente link: Descargar R , que descargara un instalador.\n\nSi tiene instalado R en su maquina debe ser mayor o igual que la versión v4.0. Una vez instalado R podemos instalar Rstudio en el siguiente Link: Descargar Rstudio\n\nTambien puede visitar las páginas de descarga para revisar otras versiones en los siguientes links:\nR project Rstudio Desktop\n\n\n\n\n\n\nNota\n\n\n\nSi cuenta con WSL (Windows subsystem Linux) instale tanto R como Rstudio en Windows!."
+    "text": "Instalación de R y Rstudio para Windows\n\n\n\n\n\n\n\nNota\n\n\n\nSi cuenta con WSL (Windows subsystem Linux) instale tanto R como Rstudio en Windows!."
   },
   {
     "objectID": "index.html#instalación-de-r-y-rstudio-para-linux",
     "href": "index.html#instalación-de-r-y-rstudio-para-linux",
     "title": "Instalación de Paquetes",
     "section": "Instalación de R y Rstudio para Linux",
-    "text": "Instalación de R y Rstudio para Linux\nProcure instalar la versión 4 de R (cran-40), si tiene inconvenientes instalando esta versión de R añada el repositorio de cran-40.\n## actualizar los repositorios e instalar R\nsudo apt update\nsudo apt install r-base\nSi tiene la versión de Ubuntu 20 , 22 o Debian elija entre los siguientes instaladores .deb:\nDescargar Rstudio Ubuntu 20 / Debian 11\nDescargar Rstudio Ubuntu 22\nPara instalar los IDE debe ubicarse en la carpeta donde se descargo el .deb\n### instalar gdebi para instalar rstudio.deb \nsudo apt install gdebi\n\n### Instalar rstudio\nsudo gdebi rstudio-2023.09.0-463-amd64.deb\n\n\n\n\n\n\nNota\n\n\n\nSi quiere instalar sin incovenientes verifique las versión de Linux que cuenta. Si desea ver mas opciones de instalación puede ir a la página de descargas de Rstudio Desktop"
+    "text": "Instalación de R y Rstudio para Linux\n\n\n\n\n\n\n\nNota\n\n\n\nSi quiere instalar sin incovenientes verifique las versión de Linux que cuenta. Si desea ver mas opciones de instalación puede ir a la página de descargas de Rstudio Desktop"
   },
   {
     "objectID": "index.html#instalaciones-de-paquetes-de-r",
@@ -593,5 +593,12 @@
     "title": "Introducción a Metagenomica",
     "section": "Gráficas para metagenómica",
     "text": "Gráficas para metagenómica\nBiocManager::install(c(\"phyloseq\", \"microbiome\", \"ComplexHeatmap\"), update = FALSE)\ninstall.packages(\n  \"microViz\",\n  repos = c(davidbarnett = \"https://david-barnett.r-universe.dev\", getOption(\"repos\"))\n)\nlibrary(microViz)\n\nEn esta sección, se realiza una visualización de la abundancia relativa de los ASVs a nivel de género. Se genera un gráfico de barras utilizando la función comp_barplot(). El gráfico muestra los 12 géneros más abundantes en cada muestra y se utiliza merge_other = TRUE para agrupar los géneros menos abundantes en una categoría llamada “Other”.\n\n#importar objeto phyloseq (ps)\nps &lt;- readRDS(\"results/objeto_phyloseq.RDS\")\n\n## Corregir NA's\nnew_ps &lt;- ps %&gt;% tax_fix(unknowns = c(\"endosymbionts\"))\nnew_ps &lt;- ps %&gt;% tax_fix(unknowns = c(\"Unknown Family\"))\n\n## plot\n\nnew_ps %&gt;% \n  comp_barplot(\"Genus\", n_taxa = 12, merge_other = TRUE) +\n  facet_wrap(vars(location), scales = \"free\") + # scales = \"free\" is IMPORTANT!\n  coord_flip() +\n  ggtitle(\n    \"ABUNDANCIA RELATIVA DE ASV\",\n  ) +\n  theme(axis.ticks.y = element_blank(), strip.text = element_text(face = \"bold\"))\n\n\n\n\n\n\n\nResumen\n\n\n\n\n\nPasos de Ejecución del Tutorial:\n\nCargar Librerías y Scripts:\n\nSe cargan las librerías y scripts necesarios para el análisis.\n\nDescargar Secuencias:\n\nSe descargan las secuencias desde una fuente específica utilizando códigos de acceso.\n\nCalidad y Filtrado de Secuencias:\n\nSe evalúa la calidad de las secuencias y se filtran aquellas que no cumplen con los estándares de calidad.\nSe realiza un análisis de calidad de las secuencias.\nSe filtran las secuencias para eliminar aquellas de baja calidad.\n\nModelar los Errores de Secuenciación:\n\nSe modelan los errores de secuenciación para comprender y corregir los errores presentes en las secuencias.\n\nInferencia de ASV (Amplicon Sequence Variant):\n\nSe realiza la inferencia de las Amplicon Sequence Variants (ASVs), que representan secuencias precisas y únicas generadas a partir de datos de secuenciación.\n\nDenoising de Datos:\n\nSe realiza el proceso de denoising para eliminar ruido y duplicados de las secuencias, mejorando la calidad de los datos.\n\nAsignación Taxonómica:\n\nSe asigna una clasificación taxonómica a las secuencias utilizando una base de datos de referencia.\n\nCreación de Objeto Phyloseq para Análisis de Microbioma:\n\nSe crea un objeto Phyloseq que integra información sobre la tabla de abundancia de ASVs, metadatos y taxonomía.\n\nExportar Datos de ASV:\n\nSe exportan las secuencias representativas de los ASVs y la información taxonómica.\n\nImportar Datos y Guardar en Formato RDS para Reanálisis:\n\nSe importan los datos de ASVs y se almacenan en un formato RDS para futuros análisis.\n\nRealizar Rarificación para Igualar la Profundidad de Secuenciación entre Muestras:\n\nSe realiza la rarificación para estandarizar el número de secuencias en todas las muestras, abordando desigualdades en la profundidad de secuenciación.\n\nVisualizar la Abundancia Relativa de ASVs y Realizar Correcciones Taxonómicas:\n\nSe visualiza la abundancia relativa de ASVs a nivel de género y se aplican correcciones taxonómicas en caso de identificaciones incorrectas."
+  },
+  {
+    "objectID": "index.html#instalación-de-r-y-rstudio-para-mac",
+    "href": "index.html#instalación-de-r-y-rstudio-para-mac",
+    "title": "Instalación de Paquetes",
+    "section": "Instalación de R y Rstudio para Mac",
+    "text": "Instalación de R y Rstudio para Mac\n\n\n\n\n\n\n\nAdvertencia\n\n\n\nPara la instalar R y R studio en Mac debemos considerar que tipo de GPU tienen su Mac, si tiene M1/M2 o esta basado en Intel."
   }
 ]
