@@ -417,7 +417,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#instalación-y-carga-de-bibliotecas" id="toc-instalación-y-carga-de-bibliotecas" class="nav-link" data-scroll-target="#instalación-y-carga-de-bibliotecas">Instalación y carga de bibliotecas</a></li>
   <li><a href="#funciones-y-archivos-fuente-utilizados" id="toc-funciones-y-archivos-fuente-utilizados" class="nav-link" data-scroll-target="#funciones-y-archivos-fuente-utilizados">Funciones y archivos Fuente Utilizados</a>
   <ul class="collapse">
-  <li><a href="#descarga-de-sra-toolkit" id="toc-descarga-de-sra-toolkit" class="nav-link" data-scroll-target="#descarga-de-sra-toolkit">Descarga de SRA Toolkit</a></li>
   <li><a href="#listado-de-archivos-fastq" id="toc-listado-de-archivos-fastq" class="nav-link" data-scroll-target="#listado-de-archivos-fastq">Listado de archivos FASTQ</a></li>
   <li><a href="#filtrado-y-recorte-de-lecturas" id="toc-filtrado-y-recorte-de-lecturas" class="nav-link" data-scroll-target="#filtrado-y-recorte-de-lecturas">Filtrado y recorte de lecturas</a></li>
   <li><a href="#generación-de-consenso" id="toc-generación-de-consenso" class="nav-link" data-scroll-target="#generación-de-consenso">Generación de consenso</a></li>
@@ -502,15 +501,7 @@ install.R
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(i, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.element</span>(<span class="st">"GEOquery"</span>, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))) {</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'GEOquery'</span>, <span class="st">'seandavi'</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.element</span>(<span class="st">"radiator"</span>, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))) {</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"thierrygosselin/radiator"</span>)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(radiator)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(radiator)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -518,44 +509,11 @@ install.R
 <section id="funciones-y-archivos-fuente-utilizados" class="level2">
 <h2 class="anchored" data-anchor-id="funciones-y-archivos-fuente-utilizados">Funciones y archivos Fuente Utilizados</h2>
 <p>En esta sección, se colocaran las funciones y los archivos fuentes que utilizaremos durante el curso.</p>
-<section id="descarga-de-sra-toolkit" class="level3">
-<h3 class="anchored" data-anchor-id="descarga-de-sra-toolkit">Descarga de SRA Toolkit</h3>
-<p>El siguiente código descarga SRA Toolkit dependiendo del sistema operativo (Windows o Linux) y configura las funciones necesarias para su uso.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="scripts/sratoolkit.R">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-scripts/sratoolkit.R
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Código para descargar SRA Toolkit y configurar funciones específicas</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># según el sistema operativo (Windows o Linux)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones para descargar y dividir archivos SRA</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="st">"sratoolkit"</span>, <span class="at">slots =</span> <span class="fu">list</span>(<span class="at">dest =</span> <span class="st">"character"</span>, <span class="at">sraid =</span> <span class="st">"character"</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"downloadsra"</span>, <span class="cf">function</span>(obj) {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardGeneric</span>(<span class="st">"downloadsra"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"fastqdump"</span>, <span class="cf">function</span>(obj, output) {</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardGeneric</span>(<span class="st">"fastqdump"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="listado-de-archivos-fastq" class="level3">
 <h3 class="anchored" data-anchor-id="listado-de-archivos-fastq">Listado de archivos FASTQ</h3>
 <p>El archivo <code>listfastq.R</code> contiene una función llamada <code>list_fastq</code> que se utiliza para listar los archivos FASTQ en un directorio específico y organizarlos según un patrón.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="scripts/listfastq.R">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -564,19 +522,19 @@ scripts/listfastq.R
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>list_fastq <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">ruta =</span> <span class="fu">getwd</span>(), <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"_1.fastq"</span>, <span class="st">"_2.fastq"</span>)){</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Set working directory</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(ruta)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  fastq<span class="ot">=</span> <span class="fu">paste0</span>(ruta,<span class="st">"/data/rawdata"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list.files</span>(fastq)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  lecturasf <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq, <span class="at">pattern =</span> pattern[<span class="dv">1</span>], <span class="at">full.names =</span> T))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  lecturasr <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq, <span class="at">pattern =</span> pattern[<span class="dv">2</span>], <span class="at">full.names =</span> T))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  nombres_muestras <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(<span class="fu">basename</span>(lecturasf),<span class="st">"_"</span>), <span class="st">`</span><span class="at">[</span><span class="st">`</span>,<span class="dv">1</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">lf =</span> lecturasf, <span class="at">lr =</span> lecturasr, <span class="at">name =</span> nombres_muestras))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>list_fastq <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">ruta =</span> <span class="fu">getwd</span>(), <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"_1.fastq"</span>, <span class="st">"_2.fastq"</span>)){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Set working directory</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(ruta)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  fastq<span class="ot">=</span> <span class="fu">paste0</span>(ruta,<span class="st">"/data/rawdata"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list.files</span>(fastq)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  lecturasf <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq, <span class="at">pattern =</span> pattern[<span class="dv">1</span>], <span class="at">full.names =</span> T))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  lecturasr <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq, <span class="at">pattern =</span> pattern[<span class="dv">2</span>], <span class="at">full.names =</span> T))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  nombres_muestras <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(<span class="fu">basename</span>(lecturasf),<span class="st">"_"</span>), <span class="st">`</span><span class="at">[</span><span class="st">`</span>,<span class="dv">1</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">lf =</span> lecturasf, <span class="at">lr =</span> lecturasr, <span class="at">name =</span> nombres_muestras))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -584,6 +542,51 @@ scripts/listfastq.R
 <section id="filtrado-y-recorte-de-lecturas" class="level3">
 <h3 class="anchored" data-anchor-id="filtrado-y-recorte-de-lecturas">Filtrado y recorte de lecturas</h3>
 <p>El archivo <code>filterreads.R</code> contiene una función llamada <code>filter_reads</code> que se utiliza para filtrar y recortar lecturas de archivos FASTQ.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="scripts/filtereads.R">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+scripts/filtereads.R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#----filtrado y recorte de lecturas----</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>filter_reads <span class="ot">&lt;-</span> <span class="cf">function</span>(name, lf, lr, <span class="at">trunc =</span> <span class="dv">150</span>){</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  filtF <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">paste0</span>(<span class="fu">getwd</span>(),<span class="st">"/data/processed_data"</span>), <span class="st">"filtered_F"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">paste0</span>(name, <span class="st">"_filt_1.fastq"</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  filtR <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">paste0</span>(<span class="fu">getwd</span>(),<span class="st">"/data/processed_data"</span>), <span class="st">"filtered_R"</span>, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">paste0</span>(name, <span class="st">"_filt_2.fastq"</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(filtF) <span class="ot">&lt;-</span> name</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(filtR) <span class="ot">&lt;-</span> name</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(lf,filtF,lr,filtR, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">truncLen =</span> <span class="fu">c</span>(trunc,trunc), </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">maxN =</span> <span class="dv">0</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">maxEE =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                       <span class="at">truncQ =</span> <span class="dv">2</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rm.phix =</span> T,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">compress =</span> F,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">multithread =</span> T)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  recovery <span class="ot">&lt;-</span> <span class="fu">round</span>(out[<span class="dv">2</span>]<span class="sc">/</span>out[<span class="dv">1</span>]<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  log <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Secuencias recuperadas : "</span>,recovery, <span class="st">"%"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(log)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(log)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generación-de-consenso" class="level3">
+<h3 class="anchored" data-anchor-id="generación-de-consenso">Generación de consenso</h3>
+<p>El archivo <code>consensus.R</code> contiene una función llamada <code>consensus_parallel</code> que se utiliza para generar secuencias de consenso a partir de datos de secuenciación. La función <code>consensus_parallel</code> toma varios argumentos, incluyendo el rango de posiciones, profundidad, umbral de frecuencia y otros.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="scripts/filtereads.R">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -597,145 +600,100 @@ scripts/filtereads.R
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#----filtrado y recorte de lecturas----</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>filter_reads <span class="ot">&lt;-</span> <span class="cf">function</span>(name, lf, lr, <span class="at">trunc =</span> <span class="dv">150</span>){</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  filtF <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">paste0</span>(<span class="fu">getwd</span>(),<span class="st">"/data/processed_data"</span>), <span class="st">"filtered_F"</span>, </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">paste0</span>(name, <span class="st">"_filt_1.fastq"</span>))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  filtR <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">paste0</span>(<span class="fu">getwd</span>(),<span class="st">"/data/processed_data"</span>), <span class="st">"filtered_R"</span>, </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">paste0</span>(name, <span class="st">"_filt_2.fastq"</span>))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(filtF) <span class="ot">&lt;-</span> name</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(filtR) <span class="ot">&lt;-</span> name</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(lf,filtF,lr,filtR, </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">truncLen =</span> <span class="fu">c</span>(trunc,trunc), </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">maxN =</span> <span class="dv">0</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">maxEE =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                       <span class="at">truncQ =</span> <span class="dv">2</span>,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rm.phix =</span> T,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">compress =</span> F,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">multithread =</span> T)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  recovery <span class="ot">&lt;-</span> <span class="fu">round</span>(out[<span class="dv">2</span>]<span class="sc">/</span>out[<span class="dv">1</span>]<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  log <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Secuencias recuperadas : "</span>,recovery, <span class="st">"%"</span>)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(log)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(log)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="generación-de-consenso" class="level3">
-<h3 class="anchored" data-anchor-id="generación-de-consenso">Generación de consenso</h3>
-<p>El archivo <code>consensus.R</code> contiene una función llamada <code>consensus_parallel</code> que se utiliza para generar secuencias de consenso a partir de datos de secuenciación. La función <code>consensus_parallel</code> toma varios argumentos, incluyendo el rango de posiciones, profundidad, umbral de frecuencia y otros.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="scripts/filtereads.R">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-scripts/filtereads.R
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>consensus_parallel <span class="ot">&lt;-</span> <span class="cf">function</span>(sup, <span class="at">inf=</span><span class="dv">1</span>, ex, <span class="at">depth=</span><span class="dv">0</span>, <span class="at">freq_threshold =</span> <span class="fl">0.6</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                               mltcore, <span class="at">fastafile =</span> <span class="cn">NULL</span>){</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  nucl_string <span class="ot">&lt;-</span><span class="cf">function</span>(num, ex,depth,freq_threshold ){</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## exist position </span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(ex[<span class="fu">which</span>(ex<span class="sc">$</span>pos <span class="sc">==</span> num), ]) <span class="sc">==</span> <span class="dv">0</span>){</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      return <span class="ot">&lt;-</span> <span class="st">"N"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      tmp <span class="ot">&lt;-</span> ex[<span class="fu">which</span>(ex<span class="sc">$</span>pos <span class="sc">==</span>num), ]</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="do">## depth &gt;= threshold</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">sum</span>(tmp<span class="sc">$</span>count) <span class="sc">&gt;=</span> depth){</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        tmp <span class="ot">&lt;-</span> tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Percentage =</span> count<span class="sc">/</span><span class="fu">sum</span>(count))</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="do">### most frequency nucl &gt;= threshold </span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">max</span>(tmp<span class="sc">$</span>Percentage) <span class="sc">&gt;=</span> freq_threshold){</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>          tmp <span class="ot">&lt;-</span> <span class="fu">as.character</span>(tmp[<span class="fu">which</span>(tmp<span class="sc">$</span>Percentage <span class="sc">==</span> <span class="fu">max</span>(tmp<span class="sc">$</span>Percentage)),<span class="dv">3</span>])</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>          return <span class="ot">&lt;-</span> tmp</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>          <span class="do">### most frequency nucl &lt; threshold </span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        }<span class="cf">else</span>{</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="do">## capture two more frequency nucl </span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>          abg <span class="ot">&lt;-</span> <span class="fu">as.character</span>(tmp[<span class="fu">which</span>(tmp<span class="sc">$</span>Percentage <span class="sc">&gt;=</span> freq_threshold<span class="sc">/</span><span class="dv">2</span>),<span class="dv">3</span>])</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>          abg_rev <span class="ot">&lt;-</span> <span class="fu">rev</span>(abg)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>          <span class="do">## make a string normal and rev</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>          abg <span class="ot">&lt;-</span>  <span class="fu">paste</span>(abg, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>          abg_rev <span class="ot">&lt;-</span> <span class="fu">paste</span>(abg_rev, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>          <span class="do">## identify IUPAC code </span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>          result <span class="ot">=</span> <span class="cf">switch</span>(  </span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            abg,  </span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AG"</span><span class="ot">=</span> <span class="st">"R"</span>,  </span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"CT"</span><span class="ot">=</span> <span class="st">"Y"</span>,  </span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GC"</span><span class="ot">=</span> <span class="st">"S"</span>,  </span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AT"</span><span class="ot">=</span> <span class="st">"W"</span>,  </span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GT"</span><span class="ot">=</span> <span class="st">"K"</span>,  </span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AC"</span><span class="ot">=</span> <span class="st">"M"</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>          )  </span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>          result_rev <span class="ot">=</span> <span class="cf">switch</span>(  </span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            abg_rev,  </span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AG"</span><span class="ot">=</span> <span class="st">"R"</span>,  </span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"CT"</span><span class="ot">=</span> <span class="st">"Y"</span>,  </span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GC"</span><span class="ot">=</span> <span class="st">"S"</span>,  </span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AT"</span><span class="ot">=</span> <span class="st">"W"</span>,  </span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GT"</span><span class="ot">=</span> <span class="st">"K"</span>,  </span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AC"</span><span class="ot">=</span> <span class="st">"M"</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>          )  </span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>          <span class="do">## assign code to vector consensus</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span>(<span class="fu">is.null</span>(result_rev) <span class="sc">&amp;&amp;</span> <span class="fu">is.null</span>(result)){</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>            return <span class="ot">&lt;-</span>  <span class="st">"N"</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>          }<span class="cf">else</span>{</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            r <span class="ot">&lt;-</span> <span class="fu">c</span>(result,result_rev)</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            return <span class="ot">&lt;-</span>  r</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>          }</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        <span class="do">## depth &lt;= threshold   </span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        return <span class="ot">&lt;-</span>  <span class="st">"N"</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dna_vector &lt;- c()</span></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  my.cluster <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">makeCluster</span>(</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    mltcore, </span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"PSOCK"</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>  doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>(<span class="at">cl =</span> my.cluster)</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>  foreach<span class="sc">::</span><span class="fu">getDoParRegistered</span>()</span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  foreach<span class="sc">::</span><span class="fu">getDoParWorkers</span>()</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span>sup, <span class="at">.combine =</span> <span class="st">'c'</span>,<span class="at">.packages=</span><span class="st">'dplyr'</span>)<span class="sc">%dopar%</span>{</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nucl_string</span>(<span class="at">num =</span> i, <span class="at">ex =</span> ex,<span class="at">depth =</span> depth,</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">freq_threshold =</span> freq_threshold )</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>  <span class="co">#make string of vector consensus</span></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>  dna_string <span class="ot">&lt;-</span> <span class="fu">paste</span>(x, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  parallel<span class="sc">::</span><span class="fu">stopCluster</span>(<span class="at">cl =</span> my.cluster)</span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fastafile)){</span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    fileConn<span class="ot">&lt;-</span><span class="fu">file</span>(fastafile)</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeLines</span>(<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"&gt;"</span>,<span class="fu">as.character</span>(res<span class="sc">$</span>seqnames[<span class="dv">1</span>]),</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"_"</span>,<span class="fu">format</span>(inf,<span class="at">scientific=</span><span class="cn">FALSE</span>),</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>                        <span class="st">":"</span>,<span class="fu">format</span>(sup,<span class="at">scientific=</span><span class="cn">FALSE</span>)),</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>                 dna_string), fileConn)</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">close</span>(fileConn)</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>consensus_parallel <span class="ot">&lt;-</span> <span class="cf">function</span>(sup, <span class="at">inf=</span><span class="dv">1</span>, ex, <span class="at">depth=</span><span class="dv">0</span>, <span class="at">freq_threshold =</span> <span class="fl">0.6</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                               mltcore, <span class="at">fastafile =</span> <span class="cn">NULL</span>){</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  nucl_string <span class="ot">&lt;-</span><span class="cf">function</span>(num, ex,depth,freq_threshold ){</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## exist position </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(ex[<span class="fu">which</span>(ex<span class="sc">$</span>pos <span class="sc">==</span> num), ]) <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      return <span class="ot">&lt;-</span> <span class="st">"N"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      tmp <span class="ot">&lt;-</span> ex[<span class="fu">which</span>(ex<span class="sc">$</span>pos <span class="sc">==</span>num), ]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="do">## depth &gt;= threshold</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">sum</span>(tmp<span class="sc">$</span>count) <span class="sc">&gt;=</span> depth){</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        tmp <span class="ot">&lt;-</span> tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Percentage =</span> count<span class="sc">/</span><span class="fu">sum</span>(count))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="do">### most frequency nucl &gt;= threshold </span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">max</span>(tmp<span class="sc">$</span>Percentage) <span class="sc">&gt;=</span> freq_threshold){</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>          tmp <span class="ot">&lt;-</span> <span class="fu">as.character</span>(tmp[<span class="fu">which</span>(tmp<span class="sc">$</span>Percentage <span class="sc">==</span> <span class="fu">max</span>(tmp<span class="sc">$</span>Percentage)),<span class="dv">3</span>])</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>          return <span class="ot">&lt;-</span> tmp</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>          <span class="do">### most frequency nucl &lt; threshold </span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        }<span class="cf">else</span>{</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>          <span class="do">## capture two more frequency nucl </span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>          abg <span class="ot">&lt;-</span> <span class="fu">as.character</span>(tmp[<span class="fu">which</span>(tmp<span class="sc">$</span>Percentage <span class="sc">&gt;=</span> freq_threshold<span class="sc">/</span><span class="dv">2</span>),<span class="dv">3</span>])</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>          abg_rev <span class="ot">&lt;-</span> <span class="fu">rev</span>(abg)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>          <span class="do">## make a string normal and rev</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>          abg <span class="ot">&lt;-</span>  <span class="fu">paste</span>(abg, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>          abg_rev <span class="ot">&lt;-</span> <span class="fu">paste</span>(abg_rev, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>          <span class="do">## identify IUPAC code </span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>          result <span class="ot">=</span> <span class="cf">switch</span>(  </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            abg,  </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AG"</span><span class="ot">=</span> <span class="st">"R"</span>,  </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"CT"</span><span class="ot">=</span> <span class="st">"Y"</span>,  </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GC"</span><span class="ot">=</span> <span class="st">"S"</span>,  </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AT"</span><span class="ot">=</span> <span class="st">"W"</span>,  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GT"</span><span class="ot">=</span> <span class="st">"K"</span>,  </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AC"</span><span class="ot">=</span> <span class="st">"M"</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>          )  </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>          result_rev <span class="ot">=</span> <span class="cf">switch</span>(  </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            abg_rev,  </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AG"</span><span class="ot">=</span> <span class="st">"R"</span>,  </span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"CT"</span><span class="ot">=</span> <span class="st">"Y"</span>,  </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GC"</span><span class="ot">=</span> <span class="st">"S"</span>,  </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AT"</span><span class="ot">=</span> <span class="st">"W"</span>,  </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"GT"</span><span class="ot">=</span> <span class="st">"K"</span>,  </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"AC"</span><span class="ot">=</span> <span class="st">"M"</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>          )  </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>          <span class="do">## assign code to vector consensus</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span>(<span class="fu">is.null</span>(result_rev) <span class="sc">&amp;&amp;</span> <span class="fu">is.null</span>(result)){</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>            return <span class="ot">&lt;-</span>  <span class="st">"N"</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>          }<span class="cf">else</span>{</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>            r <span class="ot">&lt;-</span> <span class="fu">c</span>(result,result_rev)</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>            return <span class="ot">&lt;-</span>  r</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        <span class="do">## depth &lt;= threshold   </span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>        return <span class="ot">&lt;-</span>  <span class="st">"N"</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dna_vector &lt;- c()</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>  my.cluster <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">makeCluster</span>(</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    mltcore, </span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"PSOCK"</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>  doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>(<span class="at">cl =</span> my.cluster)</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  foreach<span class="sc">::</span><span class="fu">getDoParRegistered</span>()</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>  foreach<span class="sc">::</span><span class="fu">getDoParWorkers</span>()</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span>sup, <span class="at">.combine =</span> <span class="st">'c'</span>,<span class="at">.packages=</span><span class="st">'dplyr'</span>)<span class="sc">%dopar%</span>{</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nucl_string</span>(<span class="at">num =</span> i, <span class="at">ex =</span> ex,<span class="at">depth =</span> depth,</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">freq_threshold =</span> freq_threshold )</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  <span class="co">#make string of vector consensus</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  dna_string <span class="ot">&lt;-</span> <span class="fu">paste</span>(x, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  parallel<span class="sc">::</span><span class="fu">stopCluster</span>(<span class="at">cl =</span> my.cluster)</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fastafile)){</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    fileConn<span class="ot">&lt;-</span><span class="fu">file</span>(fastafile)</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeLines</span>(<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"&gt;"</span>,<span class="fu">as.character</span>(res<span class="sc">$</span>seqnames[<span class="dv">1</span>]),</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"_"</span>,<span class="fu">format</span>(inf,<span class="at">scientific=</span><span class="cn">FALSE</span>),</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>                        <span class="st">":"</span>,<span class="fu">format</span>(sup,<span class="at">scientific=</span><span class="cn">FALSE</span>)),</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>                 dna_string), fileConn)</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">close</span>(fileConn)</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
