@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./metagenomica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introducción a Metagenomica</span></a>
+ <span class="menu-text">Metabarcoding</span></a>
   </div>
 </li>
       </ul>
@@ -401,11 +401,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#anotaci%C3%B3n-de-genomas-bacterianos" id="toc-anotación-de-genomas-bacterianos" class="nav-link" data-scroll-target="#anotaci%C3%B3n-de-genomas-bacterianos">Anotación de Genomas Bacterianos</a>
   <ul class="collapse">
-<li><a href="#paso-1-instalaci%C3%B3n-de-prokka" id="toc-paso-1-instalación-de-prokka" class="nav-link" data-scroll-target="#paso-1-instalaci%C3%B3n-de-prokka">Paso 1: Instalación de Prokka</a></li>
-  <li><a href="#paso-2-anotaci%C3%B3n-con-prokka" id="toc-paso-2-anotación-con-prokka" class="nav-link" data-scroll-target="#paso-2-anotaci%C3%B3n-con-prokka">Paso 2: Anotación con Prokka</a></li>
-  <li><a href="#paso-3-edici%C3%B3n-de-los-datos-de-anotaci%C3%B3n" id="toc-paso-3-edición-de-los-datos-de-anotación" class="nav-link" data-scroll-target="#paso-3-edici%C3%B3n-de-los-datos-de-anotaci%C3%B3n">Paso 3: Edición de los Datos de Anotación</a></li>
-  <li><a href="#paso-4-procesamiento-de-datos-en-r" id="toc-paso-4-procesamiento-de-datos-en-r" class="nav-link" data-scroll-target="#paso-4-procesamiento-de-datos-en-r">Paso 4: Procesamiento de Datos en R</a></li>
-  <li><a href="#paso-5-visualizaci%C3%B3n-en-gr%C3%A1fico-circular" id="toc-paso-5-visualización-en-gráfico-circular" class="nav-link" data-scroll-target="#paso-5-visualizaci%C3%B3n-en-gr%C3%A1fico-circular">Paso 5: Visualización en Gráfico Circular</a></li>
+<li><a href="#paso-1-pagina-web" id="toc-paso-1-pagina-web" class="nav-link" data-scroll-target="#paso-1-pagina-web">Paso 1: Pagina web</a></li>
+  <li><a href="#paso-2-subir-el-genoma-consenso" id="toc-paso-2-subir-el-genoma-consenso" class="nav-link" data-scroll-target="#paso-2-subir-el-genoma-consenso">Paso 2: Subir el genoma consenso</a></li>
+  <li><a href="#paso-3-taxnomy-id" id="toc-paso-3-taxnomy-id" class="nav-link" data-scroll-target="#paso-3-taxnomy-id">Paso 3: Taxnomy ID</a></li>
+  <li><a href="#paso-4-visualizaci%C3%B3n-en-gr%C3%A1fico-circular" id="toc-paso-4-visualización-en-gráfico-circular" class="nav-link" data-scroll-target="#paso-4-visualizaci%C3%B3n-en-gr%C3%A1fico-circular">Paso 4: Visualización en Gráfico Circular</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -501,92 +500,23 @@ Comparativa con Linux
 </div>
 </div>
 </section><section id="anotación-de-genomas-bacterianos" class="level2"><h2 class="anchored" data-anchor-id="anotación-de-genomas-bacterianos">Anotación de Genomas Bacterianos</h2>
-<p>En esta sección, aprenderás a realizar la anotación de genomas bacterianos utilizando la herramienta Prokka. Asegúrate de seguir los pasos detallados a continuación.</p>
-<section id="paso-1-instalación-de-prokka" class="level3"><h3 class="anchored" data-anchor-id="paso-1-instalación-de-prokka">Paso 1: Instalación de Prokka</h3>
-<p>Antes de comenzar con la anotación, primero debemos instalar la herramienta Prokka. Si aún no lo has hecho, puedes encontrar instrucciones detalladas en el <a href="index.html">índice del curso</a>.</p>
-</section><section id="paso-2-anotación-con-prokka" class="level3"><h3 class="anchored" data-anchor-id="paso-2-anotación-con-prokka">Paso 2: Anotación con Prokka</h3>
-<p>Una vez que tengas Prokka instalado, puedes usar el siguiente comando para realizar la anotación de tu genoma bacteriano:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anotación de genomas bacterianos</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--kingdom</span> Bacteria <span class="at">--outdir</span> annotation/ <span class="at">--centre</span> X <span class="at">--compliant</span> ref.fa</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Este comando creará una carpeta llamada <code>annotation/</code> donde podrás encontrar los diferentes formatos de anotación generados por Prokka.</p>
-</section><section id="paso-3-edición-de-los-datos-de-anotación" class="level3"><h3 class="anchored" data-anchor-id="paso-3-edición-de-los-datos-de-anotación">Paso 3: Edición de los Datos de Anotación</h3>
-<p>Antes de trabajar con los datos de anotación, es importante realizar algunas ediciones. A continuación, se presentan los comandos necesarios:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retirar el encabezado del archivo GFF</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 2 PROKKA_10052023.gff <span class="op">&gt;</span> annotation.gff</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Retirar las secuencias fasta no deseadas del archivo GFF</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">fgrep</span> <span class="st">"gnl|X|DKBIDJJK_1"</span> PROKKA_10052023.gff <span class="kw">|</span> <span class="fu">fgrep</span> <span class="at">-v</span> <span class="st">"&gt;gnl"</span> <span class="op">&gt;&gt;</span> annotation.gff</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d</span><span class="st">";"</span> <span class="at">-f1</span> annotation.gff <span class="op">&gt;</span> annotation2.gff</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retirar el encabezado del archivo TSV</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 1 PROKKA_10052023.tsv <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1,2,3,4</span> <span class="op">&gt;</span> annotation.csv</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Retirar las anotaciones del archivo TSV</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print $1"\t"$2"\t"$3"\t"$4}'</span> PROKKA_10052023.tsv <span class="op">&gt;&gt;</span> annotation.tsv</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section><section id="paso-4-procesamiento-de-datos-en-r" class="level3"><h3 class="anchored" data-anchor-id="paso-4-procesamiento-de-datos-en-r">Paso 4: Procesamiento de Datos en R</h3>
-<p>Ahora que hemos preparado los datos, podemos cargarlos en R y realizar análisis adicionales. Asegúrate de tener las bibliotecas necesarias instaladas. Puedes ejecutar estos comandos en R:</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/emmanuelparadis/ape">ape</a></span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'ape'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    where</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Leer los datos de anotación desde un archivo GFF</span></span>
-<span><span class="va">gfff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ape/man/read.gff.html">read.gff</a></span><span class="op">(</span><span class="st">"data/annotation/annotation2.gff"</span><span class="op">)</span></span>
-<span><span class="va">gfff</span><span class="op">$</span><span class="va">attributes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"ID="</span>, <span class="st">""</span>, <span class="va">gfff</span><span class="op">$</span><span class="va">attributes</span>, fixed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">gfff</span><span class="op">$</span><span class="va">attributes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"_gene"</span>, <span class="st">""</span>, <span class="va">gfff</span><span class="op">$</span><span class="va">attributes</span>, fixed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Leer los datos de anotación desde un archivo TSV</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"data/annotation/annotation.tsv"</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ftype</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CDS"</span>, <span class="st">"rRNA"</span>, <span class="st">"tRNA"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filtrar y procesar los datos</span></span>
-<span><span class="va">gffCDS</span> <span class="op">&lt;-</span> <span class="va">gfff</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CDS"</span>, <span class="st">"rRNA"</span>, <span class="st">"tRNA"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">df</span>, y <span class="op">=</span> <span class="va">gffCDS</span>, by.y <span class="op">=</span> <span class="st">"attributes"</span>, by.x <span class="op">=</span> <span class="st">"locus_tag"</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Contar el número de etiquetas de locus únicas</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">$</span><span class="va">locus_tag</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1143</code></pre>
-</div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filtrar y seleccionar las primeras 20 filas de genes no hipotéticos</span></span>
-<span><span class="va">genes_annot</span> <span class="op">&lt;-</span> <span class="va">tmp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gene</span> <span class="op">!=</span> <span class="st">"hypothetical"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">genes_annot</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"locus"</span>, <span class="st">"ftype"</span>, <span class="st">"width"</span>, <span class="st">"gene"</span>, <span class="st">"seqid"</span>, <span class="st">"source"</span>, <span class="st">"type"</span>,</span>
-<span>                           <span class="st">"start"</span>, <span class="st">"end"</span>, <span class="st">"score"</span>, <span class="st">"strand"</span>, <span class="st">"phase"</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="paso-5-visualización-en-gráfico-circular" class="level3"><h3 class="anchored" data-anchor-id="paso-5-visualización-en-gráfico-circular">Paso 5: Visualización en Gráfico Circular</h3>
+<p>En esta sección, aprenderás a realizar la anotación de genomas bacterianos utilizando la herramienta Rast Asegúrate de seguir los pasos detallados a continuación.</p>
+<section id="paso-1-pagina-web" class="level3"><h3 class="anchored" data-anchor-id="paso-1-pagina-web">Paso 1: Pagina web</h3>
+<p>Antes de comenzar con la anotación, primero debemos crear un usuario en la pagina de <a href="https://rast.nmpdr.org/">Rast</a></p>
+</section><section id="paso-2-subir-el-genoma-consenso" class="level3"><h3 class="anchored" data-anchor-id="paso-2-subir-el-genoma-consenso">Paso 2: Subir el genoma consenso</h3>
+<p>Una vez que tengas tu usuario, puedes ir a la siguiente direccion:</p>
+<pre><code>&gt;&gt;Your Jobs &gt; Upload New Job</code></pre>
+<p>En la seccion final <code>File Upload:</code> debes subir el genoma cosenso.</p>
+</section><section id="paso-3-taxnomy-id" class="level3"><h3 class="anchored" data-anchor-id="paso-3-taxnomy-id">Paso 3: Taxnomy ID</h3>
+<p>Antes de someter la anotacion debemos indicar el taxa al cual pertenece este genoma, para ello podemos ir al siguiente <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2098">taxa</a> que usaremos para el curso</p>
+</section><section id="paso-4-visualización-en-gráfico-circular" class="level3"><h3 class="anchored" data-anchor-id="paso-4-visualización-en-gráfico-circular">Paso 4: Visualización en Gráfico Circular</h3>
 <p>Finalmente, podemos visualizar los datos de anotación en un gráfico circular utilizando la biblioteca <code>circlize</code>. Ejecuta estos comandos en R:</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cargar bibliotecas necesarias</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cargar bibliotecas necesarias</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jokergoo/circlize">circlize</a></span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>========================================
-circlize version 0.4.15
+circlize version 0.4.16
 CRAN page: https://cran.r-project.org/package=circlize
 Github page: https://github.com/jokergoo/circlize
 Documentation: https://jokergoo.github.io/circlize_book/book/
@@ -599,41 +529,29 @@ This message can be suppressed by:
   suppressPackageStartupMessages(library(circlize))
 ========================================</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'circlize'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:ape':
-
-    degree</code></pre>
-</div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/">viridisLite</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/">viridisLite</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridis/">viridis</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">999</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Crear un dataframe con los datos de anotación</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  name  <span class="op">=</span> <span class="va">genes_annot</span><span class="op">$</span><span class="va">gene</span>,</span>
-<span>  start <span class="op">=</span> <span class="va">genes_annot</span><span class="op">$</span><span class="va">start</span>,</span>
-<span>  end   <span class="op">=</span> <span class="va">genes_annot</span><span class="op">$</span><span class="va">end</span>,</span>
-<span>  tipo <span class="op">=</span> <span class="va">genes_annot</span><span class="op">$</span><span class="va">ftype</span></span>
-<span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Crear un dataframe con los datos de anotación</span></span>
+<span><span class="va">df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    name  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TP53"</span>,  <span class="st">"TP63"</span>,    <span class="st">"TP73"</span><span class="op">)</span>,</span>
+<span>    start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7565097</span>, <span class="fl">189349205</span>, <span class="fl">3569084</span><span class="op">)</span>,</span>
+<span>    end   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7590856</span>, <span class="fl">189615068</span>, <span class="fl">3652765</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Inicializar el gráfico circular</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/circlize/man/circos.genomicInitialize.html">circos.genomicInitialize</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Configurar una pista en el gráfico circular</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/circlize/man/circos.track.html">circos.track</a></span><span class="op">(</span></span>
 <span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,  <span class="co"># Rango de valores en el eje Y</span></span>
-<span>  bg.col <span class="op">=</span> <span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">viridis</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>,  <span class="co"># Colores de fondo de las regiones</span></span>
+<span>  bg.col <span class="op">=</span> <span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">viridis</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>,  <span class="co"># Colores de fondo de las regiones</span></span>
 <span>  bg.border <span class="op">=</span> <span class="cn">NA</span>,  <span class="co"># Sin borde en las regiones</span></span>
 <span>  track.height <span class="op">=</span> <span class="fl">0.05</span>  <span class="co"># Altura de la pista</span></span>
 <span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="modulo9_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="modulo9_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1078,8 +996,8 @@ En resumen
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./metagenomica.html" class="pagination-link" aria-label="Introducción a Metagenomica">
-        <span class="nav-page-text">Introducción a Metagenomica</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./metagenomica.html" class="pagination-link" aria-label="Metabarcoding">
+        <span class="nav-page-text">Metabarcoding</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
