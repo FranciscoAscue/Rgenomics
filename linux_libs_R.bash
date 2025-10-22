@@ -9,4 +9,4 @@ sudo apt install liblzma-dev ### install package 'Rhtslib'
 sudo apt install libbz2-dev  ### dada2 packages
 sudo apt install libmagick++-dev ## ggimage
 sudo apt install libudunits2-dev libgdal-dev ## sf packages 
-
+sudo apt install -y build-essential r-base-dev g++ make libeigen3-dev libstdc++6
